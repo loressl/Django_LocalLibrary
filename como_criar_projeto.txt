@@ -1,0 +1,57 @@
+
+PASSO A PASSO DJANGO
+
+OBS:verificar versão do python
+
+
+1-Criar um diretório ou na mão ou pelo comando
+    mkdir nome_pasta
+2-Criar ambiente virtual dentro da pasta
+    python -m venv nome_venv
+3-Ativar o ambiente virtual dentro da pasta
+    windows: nome_venv\Scripts\activate
+    Linux: source nome_venv/bin/activate
+4-Instalar o pip no ambiente virtual
+    python -m pip install --upgrade pip
+5-Criar um arquivo chamado requirements.txt com a versão do DJANGO
+    Django~=2.0.6 e salvar
+6-Instalar o Django no ambiente virtual
+    python -m pip install -r requirements.txt
+        ou
+    pip install django 
+        obs: para recuperar o que foi instalado digita pip freeze nome_arquivo.txt
+7-Ver versão do django:
+    python -m django --version
+8-Criar projeto no ambiente virtual
+    django-admin startproject mysite
+9-Mudar configurações no setting.py
+    TIME_ZONE = 'America/Bahia'
+    LANGUAGE_CODE = 'pt-BR'
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    ALLOWED_HOSTS = ['127.0.0.1', plataforma q for utilizar bt]
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+     }
+    }
+10-Na pasta mysite fazer, isso cria as tabelas no bd. Pode fazer outras vezes.
+    python manage.py migrate
+11-Criar aplicação
+    python manage.py startapp nome_pasta
+12-Colocar o nome da pasta em INSTALLED_APPS
+13-Após configurações do bd no models da pasta do app fazer
+    python manage.py makemigrations nome_pasta
+        após isso fazer migrate, para criar o bd
+    assim vai criar o bd
+14-Rodar servidor
+    python manage.py runserver
+
+*COMANDOS EXTRAS
+1-Mostra o script do bd
+    -python manage.py sqlmigrate nome_pasta 0001
+2-Checa os problemas no projeto
+    -python manage.py check
+3-Criar um usário admin
+    -python manage.py createsuperuser
