@@ -55,3 +55,6 @@ OBS:verificar versão do python
     -python manage.py check
 3-Criar um usário admin
     -python manage.py createsuperuser
+
+
+OBS: se for baixar o projeto criado no linux no windows, deve criar uma vm novamente e instalar o django. 
